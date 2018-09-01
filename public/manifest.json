@@ -1,0 +1,8 @@
+{
+  "short_name": "URL Shortener App",
+  "name": "URL Shortener",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#a19162",
+  "background_color": "#a19162"
+}

@@ -1,0 +1,12 @@
+[
+    { "value": "job", "label": "Job" },
+    { "value": "career", "label": "Career" },
+    { "value": "sports", "label": "Sports" },
+    { "value": "food", "label": "Food" },
+    { "value": "news", "label": "News" },
+    { "value": "country", "label": "Country" },
+    { "value": "politics", "label": "Politics" },
+    { "value": "technology", "label": "Technology" },
+    { "value": "entertainment", "label": "Entertainment" },
+    { "value": "finance", "label": "Finance" }
+]

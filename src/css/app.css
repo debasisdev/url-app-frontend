@@ -1,0 +1,167 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: rgb(161, 145, 145);
+  height: 150px;
+  padding: 10px;
+  color:  rgb(4, 44, 49);
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+input[type=text], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 80px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=texts], select {
+  width: 55%;
+  background-color: rgb(137, 137, 141);
+  padding: 10px 20px;
+  margin-left: -60px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.copyUrl{
+  width: 5%;
+  background-color: #34337F;
+  color: white;
+  /* padding: 0px 0px; */
+  margin: 0px -45px;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit] {
+  width: 75%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  width: 75%;
+  background-color: #db3c0c;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #45a049;
+}
+
+footer {
+  background-color: rgb(161, 145, 145);
+  /* position: absolute;
+  bottom: 0; 
+  height: 50px */
+  width: 100%; 
+  color: rgb(4, 44, 49);
+  font-size: 14px !important;
+}
+
+.outerDiv {
+  border-radius: 5px;
+  background-color: rgb(161, 145, 145);
+  color: #fff;
+  width: 100%;
+  /* margin: 0px auto;*/
+  padding: 1px; 
+  min-height: calc(80vh - 75px);
+}
+  
+.leftDiv {
+  border-radius: 5px;
+  background: linear-gradient(277deg, #6aa850, #8c4735);
+  background-size: 400% 400%;
+  -webkit-animation: leftGradient 32s ease infinite;
+  -moz-animation: leftGradient 32s ease infinite;
+  animation: leftGradient 32s ease infinite;
+  color: #000;
+  min-height: calc(80vh - 75px);
+  width: 49.5%;
+  float: left;
+}
+
+.rightDiv {
+  border-radius: 5px;
+  background: linear-gradient(64deg, #353388, #4ab57e);
+  background-size: 400% 400%;
+  -webkit-animation: rightGradient 32s ease infinite;
+  -moz-animation: rightGradient 32s ease infinite;
+  animation: rightGradient 32s ease infinite;
+  color: #000;
+  min-height: calc(80vh - 75px);
+  width: 50.5%;
+  float: right;
+}
+
+.displayed {
+  height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ @-webkit-keyframes leftGradient {
+    0%{background-position:0% 41%}
+    50%{background-position:100% 60%}
+    100%{background-position:0% 41%}
+}
+@-moz-keyframes leftGradient {
+    0%{background-position:0% 41%}
+    50%{background-position:100% 60%}
+    100%{background-position:0% 41%}
+}
+@keyframes leftGradient {
+    0%{background-position:0% 41%}
+    50%{background-position:100% 60%}
+    100%{background-position:0% 41%}
+}
+
+@-webkit-keyframes rightGradient {
+    0%{background-position:83% 0%}
+    50%{background-position:18% 100%}
+    100%{background-position:83% 0%}
+}
+@-moz-keyframes rightGradient {
+    0%{background-position:83% 0%}
+    50%{background-position:18% 100%}
+    100%{background-position:83% 0%}
+}
+@keyframes rightGradient {
+    0%{background-position:83% 0%}
+    50%{background-position:18% 100%}
+    100%{background-position:83% 0%}
+}
