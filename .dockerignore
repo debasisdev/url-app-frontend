@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+dist
+.vscode
+test-results
+.git
+.volumes
+.nyc_output/

@@ -60,7 +60,7 @@ class App extends Component {
             <div className="displayed">
               <input type="texts" id="shortUrlBox" value={ this.state.resultUrl } onChange={ this.handleResultChange.bind(this) } />
               <ReactCopyButtonWrapper selector='#shortUrlBox'>
-                <button className="copyUrl" onClick={this.notify}><FontAwesomeIcon icon="copy"/></button>
+                <button className="copyUrl"><FontAwesomeIcon icon="copy"/></button>
               </ReactCopyButtonWrapper>
             </div>
           </div>
@@ -136,19 +136,37 @@ class App extends Component {
     } else {
       fetch("http://localhost:8080/urls/expand/", {
         method: "POST",
+        redirect: 'follow',
         headers: {
           "Accept": "application/json",
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           path: this.state.shortUrl
         })
-      }).then(this.handleErrors).then((response) => {
+      }).then(this.handleRedirect)
+      .then((response) => {
         return response.json();
       }).then((json) => {
-        this.notifySuccess(json.path);
+        console.log(json);
+        this.openInNewTab(json.path);
+        // this.props.history.push(json.path)
       }).catch(error => this.notifyError(error.message));
     }
+  }
+
+  openInNewTab = (url) => {
+    var win = window.open(url, '_tab');
+    win.focus();
+  }
+
+  handleRedirect = (response) => {
+    if( response.status >= 300 && response.status <= 307){
+      this.notifySuccess('Redirection Received');
+    }else {
+      throw Error('Server returned Error: ' + response.status);
+    }
+    return response;
   }
 
   handleErrors = (response) => {
@@ -160,10 +178,6 @@ class App extends Component {
 
   notifyError = (message) => {
     toast.error(message);
-  }
-
-  notify = (message) => {
-    toast("Copied");
   }
 
   notifySuccess = (message) => {

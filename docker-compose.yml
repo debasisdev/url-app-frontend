@@ -1,0 +1,10 @@
+version: '2.1'
+services:
+    url-app:
+        build:
+          context: .
+        volumes:
+            - .:/usr/app/
+        ports:
+            - "3000:3000"
+        container_name: url-app

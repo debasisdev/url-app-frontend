@@ -2,6 +2,9 @@
   "name": "url-face",
   "version": "0.1.0",
   "private": true,
+  "description": "URL Shortener App",
+  "author": "Debasis Kar",
+  "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
     "@fortawesome/free-solid-svg-icons": "^5.3.1",
