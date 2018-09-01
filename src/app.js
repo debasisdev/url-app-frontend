@@ -4,7 +4,9 @@ import ReactCopyButtonWrapper from "react-copy-button-wrapper";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+import _ from "./GLOBALS";
+import Utility from "./Utility";
 import logo from "./res/logo.png";
 import options from "./res/customHash.json";
 import "./css/app.css";
@@ -14,9 +16,9 @@ library.add(faCopy);
 
 const initialState = {
   selectedHash: null,
-  longUrl: '',
-  shortUrl: '',
-  resultUrl: ''
+  longUrl: "",
+  shortUrl: "",
+  resultUrl: ""
 };
 
 class App extends Component {
@@ -81,7 +83,7 @@ class App extends Component {
         </div>
 
         <footer>
-          Copyright © 2018 | Developed by Debasis Kar
+          Copyright © {(new Date().getFullYear())} | Developed by Debasis Kar
         </footer>
       </div>
     );
@@ -89,7 +91,6 @@ class App extends Component {
 
   handleHashChange = (selectedHash) => {
     this.setState({ selectedHash });
-    console.log(`Option selected:`, selectedHash);
   }
 
   handleLongUrlChange = (event) => {
@@ -105,9 +106,7 @@ class App extends Component {
   }
 
   clickShorten = () => {
-    // console.log(`Shorten Clicked:`, this.state.longUrl);
-    // console.log(`Hash Clicked (if any):`, this.state.selectedHash);
-    let hostEndpoint = "http://localhost:8080/urls/shorten/";
+    let hostEndpoint = _.ENDPOINT_FOR_SHORTENING;
     if(this.state.selectedHash !== null) {
       hostEndpoint = hostEndpoint + this.state.selectedHash.value;
     }
@@ -115,81 +114,43 @@ class App extends Component {
     fetch(hostEndpoint, {
       method: "POST",
       headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
+        "Accept": _.JSON,
+        "Content-Type": _.JSON,
       },
       body: JSON.stringify({
         path: this.state.longUrl
       })
-    }).then(this.handleErrors).then((response) => {
+    }).then(Utility.handleErrors).then((response) => {
       return response.json();
     }).then((json) => {
-      this.notifySuccess(json.path);
-      // this.reset();
+      Utility.notifySuccess(json.path);
       this.setState({ resultUrl: json.path });
-    }).catch(error => this.notifyError(error.message));
+    }).catch(error => Utility.notifyError(error.message));
   }
 
   clickExpand = () => {
-    if(!this.isValidURL(this.state.shortUrl)){
-      this.notifyError("Invalid URL... Check Again");
+    if(!Utility.isValidURL(this.state.shortUrl)){
+      Utility.notifyError("Invalid URL... Check Again");
     } else {
-      fetch("http://localhost:8080/urls/expand/", {
+
+      fetch(_.ENDPOINT_FOR_EXPANDING, {
         method: "POST",
-        redirect: 'follow',
+        redirect: "follow",
         headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
+          "Accept": _.JSON,
+          "Content-Type": _.JSON
         },
         body: JSON.stringify({
           path: this.state.shortUrl
         })
-      }).then(this.handleRedirect)
+      }).then(Utility.handleRedirect)
       .then((response) => {
         return response.json();
       }).then((json) => {
-        console.log(json);
-        this.openInNewTab(json.path);
-        // this.props.history.push(json.path)
-      }).catch(error => this.notifyError(error.message));
-    }
-  }
+        this.reset();
+        Utility.openInNewTab(json.path);
+      }).catch(error => Utility.notifyError(error.message));
 
-  openInNewTab = (url) => {
-    var win = window.open(url, '_tab');
-    win.focus();
-  }
-
-  handleRedirect = (response) => {
-    if( response.status >= 300 && response.status <= 307){
-      this.notifySuccess('Redirection Received');
-    }else {
-      throw Error('Server returned Error: ' + response.status);
-    }
-    return response;
-  }
-
-  handleErrors = (response) => {
-    if (!response.ok) {
-        throw Error('Server returned Error: ' + response.status);
-    }
-    return response;
-  }
-
-  notifyError = (message) => {
-    toast.error(message);
-  }
-
-  notifySuccess = (message) => {
-    toast.success(message);
-  }
-
-  isValidURL = (str) => {
-    let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-    if (regexp.test(str)) {
-      return true;
-    } else {
-      return false;
     }
   }
 
