@@ -10,7 +10,8 @@
     "react-copy-button-wrapper": "0.0.6",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.5",
-    "react-select": "^2.0.0"
+    "react-select": "^2.0.0",
+    "react-toastify": "^4.2.3"
   },
   "scripts": {
     "start": "react-scripts start",

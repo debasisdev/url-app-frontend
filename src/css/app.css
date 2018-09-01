@@ -1,25 +1,21 @@
-.App {
+.app {
   text-align: center;
+  background: gray url(../res/geometry2.png) repeat 0 0;
 }
 
-.App-logo {
+.appLogo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.App-header {
-  background-color: rgb(161, 145, 145);
+.appHeader {
   height: 150px;
-  padding: 10px;
+  padding: 30px;
   color:  rgb(4, 44, 49);
 }
 
-.App-title {
+.appTitleitle {
   font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
 }
 
 @keyframes App-logo-spin {
@@ -52,7 +48,6 @@ input[type=texts], select {
   width: 5%;
   background-color: #34337F;
   color: white;
-  /* padding: 0px 0px; */
   margin: 0px -45px;
   display: inline-block;
   border: none;
@@ -82,10 +77,8 @@ input[type=submit] {
 }
 
 footer {
-  background-color: rgb(161, 145, 145);
-  /* position: absolute;
-  bottom: 0; 
-  height: 50px */
+  position: relative;
+  bottom: 0;
   width: 100%; 
   color: rgb(4, 44, 49);
   font-size: 14px !important;
@@ -93,36 +86,22 @@ footer {
 
 .outerDiv {
   border-radius: 5px;
-  background-color: rgb(161, 145, 145);
-  color: #fff;
+  color: #000;
   width: 100%;
-  /* margin: 0px auto;*/
   padding: 1px; 
-  min-height: calc(80vh - 75px);
+  min-height: 450px;
 }
   
 .leftDiv {
   border-radius: 5px;
-  background: linear-gradient(277deg, #6aa850, #8c4735);
-  background-size: 400% 400%;
-  -webkit-animation: leftGradient 32s ease infinite;
-  -moz-animation: leftGradient 32s ease infinite;
-  animation: leftGradient 32s ease infinite;
-  color: #000;
-  min-height: calc(80vh - 75px);
+  min-height: 450px;
   width: 49.5%;
   float: left;
 }
 
 .rightDiv {
   border-radius: 5px;
-  background: linear-gradient(64deg, #353388, #4ab57e);
-  background-size: 400% 400%;
-  -webkit-animation: rightGradient 32s ease infinite;
-  -moz-animation: rightGradient 32s ease infinite;
-  animation: rightGradient 32s ease infinite;
-  color: #000;
-  min-height: calc(80vh - 75px);
+  min-height: 450px;
   width: 50.5%;
   float: right;
 }
@@ -132,36 +111,4 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
- @-webkit-keyframes leftGradient {
-    0%{background-position:0% 41%}
-    50%{background-position:100% 60%}
-    100%{background-position:0% 41%}
-}
-@-moz-keyframes leftGradient {
-    0%{background-position:0% 41%}
-    50%{background-position:100% 60%}
-    100%{background-position:0% 41%}
-}
-@keyframes leftGradient {
-    0%{background-position:0% 41%}
-    50%{background-position:100% 60%}
-    100%{background-position:0% 41%}
-}
-
-@-webkit-keyframes rightGradient {
-    0%{background-position:83% 0%}
-    50%{background-position:18% 100%}
-    100%{background-position:83% 0%}
-}
-@-moz-keyframes rightGradient {
-    0%{background-position:83% 0%}
-    50%{background-position:18% 100%}
-    100%{background-position:83% 0%}
-}
-@keyframes rightGradient {
-    0%{background-position:83% 0%}
-    50%{background-position:18% 100%}
-    100%{background-position:83% 0%}
 }
