@@ -11,14 +11,14 @@ class Utility {
         if( response.status >= 300 && response.status <= 307){
             Utility.notifySuccess("URL redirected...");
         }else {
-            throw Error("Server returned Error: " + response.status);
+            throw Error("Server Returned: " + response.status);
         }
         return response;
     }
 
     static handleErrors = (response) => {
         if (!response.ok) {
-            throw Error("Server returned Error: " + response.status);
+            throw Error("Server Returned: " + response.status);
         }
         return response;
     }
