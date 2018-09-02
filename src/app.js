@@ -92,7 +92,7 @@ class App extends Component {
         </div>
 
         <footer>
-          Copyright © {(new Date().getFullYear())} | Developed by Debasis Kar
+          Copyright © {(new Date().getFullYear())} | Developed by Debasis
         </footer>
       </div>
     );
@@ -151,10 +151,10 @@ class App extends Component {
           Utility.notifyError(error.message);
           console.log(error.message);
       });
-      
+
     }
   }
-e
+
 }
 
 export default App;
