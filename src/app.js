@@ -128,7 +128,7 @@ class App extends Component {
     }).catch(error => Utility.notifyError(error.message));
   }
 
-  clickExpand = () => {
+  clickExpand = () => {-ä
     if(!Utility.isValidURL(this.state.shortUrl)){
       Utility.notifyError("Invalid URL... Check Again");
     } else {
