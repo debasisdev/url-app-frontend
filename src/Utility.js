@@ -12,32 +12,6 @@ class Utility {
     }
 
     /**
-     *  Handler to trace errors in Http Redirects.
-     *  @param Response Http Response
-     *  @return Response 
-     */
-    static handleRedirect = (response) => {
-        if (response.status >= 300 && response.status <= 307) {
-            Utility.notifySuccess("URL redirected...");
-        } else {
-            throw Error("Server Returned: " + response.status);
-        }
-        return response;
-    }
-
-    /**
-     *  Handler to trace errors in Http Responses.
-     *  @param Response Http Response
-     *  @return Response 
-     */
-    static handleErrors = (response) => {
-        if (!response.ok) {
-            throw Error("Server Returned: " + response.status);
-        }
-        return response;
-    }
-
-    /**
      *  Toasts a message on UI as Error
      *  @param String message to be notified
      */
