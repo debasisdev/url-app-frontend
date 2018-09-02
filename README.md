@@ -2,13 +2,12 @@
 ## Getting Started
 
 **Prerequisites:**
-* **[Node.js](https://nodejs.org/en/)** (v10.5 or later recommended)
-* **[Docker](https://docs.docker.com/release-notes/docker-ce/)** (v17.09.0-ce or later recommended)
-* **[Internet connectivity](https://dictionary.cambridge.org/dictionary/english/internet)**
+
+*  **[Node.js](https://nodejs.org/en/)** (v10.5 or later recommended)
+*  **[Docker](https://docs.docker.com/release-notes/docker-ce/)** (v17.09.0-ce or later recommended)
+*  **[Internet connectivity](https://dictionary.cambridge.org/dictionary/english/internet)**
 
 In most cases bumping the `react-scripts` version in `package.json` and running `npm install` in this folder should be enough.
-
-<hr/>
 
 ### Docker Deploy
 Build the image with docker-compose and start the container with the following one-line command. It's advisable not to use the cached images in some scenarios.
@@ -19,11 +18,11 @@ docker-compose down && docker-compose build --no-cache && docker-compose up --fo
 
 When the server is ready, try it out: [URL Shortener App](http://localhost:3000/) 🚀
 
-##### (OPTIONAL) To stop and kill all containers along with removing all images
+**(OPTIONAL)** To stop and kill all containers along with removing all images
+
 ```
-docker kill $(docker ps -q) && docker rm $(docker ps -a -q) && docker rmi $(docker images -q)
+docker kill $(docker ps -q) && docker rm $(docker ps -a -q) && docker rmi $(docker images -q) 
 ```
-<hr/>
 
 ## Available Scripts
 
@@ -31,9 +30,7 @@ In the project directory, you can run:
 
 #### `npm start`
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits. You will also see any lint errors in the console.
+Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits. You will also see any lint errors in the console.
 
 #### `npm test`
 
