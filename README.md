@@ -1,10 +1,10 @@
 # URL Shortener Application (ReactJS + ES6)
 ## Getting Started
 
-**Prerequisites:**
+**Prerequisites (Developed and Tested with):**
 
-*  **[Node.js](https://nodejs.org/en/)** (v10.5 or later recommended)
-*  **[Docker](https://docs.docker.com/release-notes/docker-ce/)** (v17.09.0-ce or later recommended)
+*  **[Node.js](https://nodejs.org/en/)** (v10.5 or later)
+*  **[Docker](https://docs.docker.com/release-notes/docker-ce/)** (v17.09.0-ce or later)
 *  **[Internet connectivity](https://dictionary.cambridge.org/dictionary/english/internet)**
 
 In most cases bumping the `react-scripts` version in `package.json` and running `npm install` in this folder should be enough.
