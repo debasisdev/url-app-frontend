@@ -4,11 +4,10 @@ pipelines:
   branches:
     master:
       - step:
-          name: Test
+          name: Prepare
           script:
             - npm install
-            - npm test
       - step:
-          name: Build
+          name: Test
           script:
-            - npm run build
+            - npm test
