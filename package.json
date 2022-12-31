@@ -12,7 +12,7 @@
     "react": "^16.4.2",
     "react-copy-button-wrapper": "0.0.6",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.5",
+    "react-scripts": "5.0.1",
     "react-select": "^2.0.0",
     "react-toastify": "^4.2.3"
   },
@@ -23,9 +23,9 @@
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
-    "babel-loader": "^8.0.1",
+    "babel-loader": "^8.3.0",
     "eslint": "^5.5.0",
-    "eslint-loader": "^2.1.0",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.11.1"
   }
 }
